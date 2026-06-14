@@ -1,0 +1,25 @@
+# Python 3.10+
+# ─────────────────────────────────────────────
+ 
+# Core data handling
+numpy==2.4.4
+pandas==3.0.2
+ 
+# Phase 1 — TF-IDF retrieval
+scikit-learn==1.8.0          # TfidfVectorizer, cosine_similarity
+ 
+# Phase 1 — BM25 retrieval
+rank-bm25==0.2.2             # BM25Okapi index on skills-only text
+ 
+# Phase 2/3 — scoring math
+scipy==1.17.1                # softmax, norm utilities
+ 
+# Parallelism — Phase 2 feature extraction across 15K candidates
+joblib==1.5.3                # Parallel, delayed — drop-in for multiprocessing
+ 
+# Progress visibility
+tqdm==4.68.2                 # per-phase progress bars
+ 
+# Date parsing — career history duration calculations
+python-dateutil==2.9.0.post0 # parse ISO date strings from career_history
+ 
