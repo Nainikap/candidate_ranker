@@ -1,0 +1,1 @@
+#phase1 hard rule and maximum filter
