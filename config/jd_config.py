@@ -319,7 +319,7 @@ SENIORITY_LEVELS = {
     2: ["engineer", "analyst", "developer", "scientist", "specialist"],
     3: ["senior", "sr.", "sr "],
     4: ["staff", "lead", "tech lead", "technical lead"],
-    5: ["principal", "director", "distinguished", "fellow", "vp", "head of"],
+    5: ["principal", "director", "distinguished", "fellow", "vp", "head of", "chief"],
 }
 
 # Flat reverse lookup: keyword → level int

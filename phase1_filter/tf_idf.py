@@ -45,7 +45,7 @@ def run_tfidf_retrieval(
     max_df = 0.85 if n_docs>= 10 else 1.0
 
     vectorizer = TfidfVectorizer(
-        ngram_range=(1,2)
+        ngram_range=(1,2),
         min_df=min_df,
         max_df=max_df,
         sublinear_tf=True,
