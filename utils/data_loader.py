@@ -47,25 +47,27 @@ def load_all_candidates(path: Path, debug: bool=False) -> list[dict]:
       if not path.exists():
          raise FileNotFoundError(f"Candidates file not found: {path}")
       
-      with open(path, "r", encoding="utf-8") as f:
-         lines = f.realines()
-
       if debug:
-         print(f"  [DEBUG] Reading {len(lines):,} lines from {path}")
-
-      for line, no in enumerate(
-         tqdm(lines, desc=" Loading", unit="candidates", disable=not debug),
-         1,
-      ):
-         line = line.strip()
-         if not line:
-            continue
-         try:
-            candidates.append(json.loads(line))
-         except json.JSONDecodeError as e:
-            print(f"  [WARN] Skipping line {no}: {e}")
-
+        # Count lines first only for the progress bar total (cheap pass,
+        # no JSON parsing, no list materialization of raw lines)
+        with open(path, "r", encoding="utf-8") as f:
+            total_lines = sum(1 for _ in f)
+        print(f"  [DEBUG] Streaming {total_lines:,} lines from {path}")
+        progress = tqdm(total=total_lines, desc="  Loading", unit="candidates")
+      else:
+        progress = None
+ 
+      candidates = []
+      for candidate in stream_candidates(path):
+        candidates.append(candidate)
+        if progress is not None:
+            progress.update(1)
+ 
+      if progress is not None:
+        progress.close()
+ 
       return candidates
+ 
 
 def get_candidate_text_fields(candidate: dict) -> dict:
    """

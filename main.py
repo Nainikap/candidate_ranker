@@ -109,7 +109,7 @@ def main():
   t4.start()
 
   final_top = generate_reasoning(final_top, debug=args.debug)
-  t2.stop()
+  t4.stop()
   print(f"  Reasoning time: {t4.elapsed:.1f}s")
 
   print(f"\n[OUTPUT] Writing results to {output_path}...")
