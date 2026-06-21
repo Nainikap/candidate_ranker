@@ -79,7 +79,7 @@ def _passes_title(candidate: dict) -> bool:
           return True
      skills = candidate.get("skills", [])
      for skill in skills:
-          skill_name = clean_skill(skill.get("name"), "")
+          skill_name = clean_skill(skill.get("name", ""))
           if skill_name in _COMPENSATING_ML_SKILLS:
                return True
           

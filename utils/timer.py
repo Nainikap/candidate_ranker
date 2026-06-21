@@ -10,7 +10,7 @@ class Timer:
     def __init__(self, name:str):
         self.name = name
         self.elapsed: float = 0.0
-        self.start: float | None=None
+        self.start_time: float | None=None
     
     def start(self):
         self._start = time.perf_counter()

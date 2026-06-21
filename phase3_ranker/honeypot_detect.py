@@ -87,7 +87,7 @@ def _skill_inflame(candidate: dict) -> bool:
     for skill in skills:
         prof     = (skill.get("proficiency") or "").lower()
         duration = skill.get("duration_months", 0) or 0
-        if prof == "advanced" and duration < min_months:
+        if prof in ("advanced", "expert") and duration < min_months:
             count += 1
  
     return count >= min_count
@@ -107,7 +107,7 @@ def _assessment_contradiction(candidate: dict) -> bool:
     for skill in skills:
         name = skill.get("name", "")
         prof = (skill.get("proficiency") or "").lower()
-        if prof!= "advanced":
+        if prof not in ("advanced", "expert"):
             continue
         score = assessments.get(name)
         if score is not None and score>= 0 and score < max_score:
@@ -136,7 +136,8 @@ def _too_perfect(candidate: dict) -> bool:
 
     max_real = HONEYPOT["max_realistic_skills_advanced"]
     advanced_count = sum(
-        1 for s in skills if (s.get("proficiency") or "").lower() == "advanced"
+        1 for s in skills 
+        if (s.get("proficiency") or "").lower() in ("advanced", "expert")
     )
     if advanced_count > max_real:
         perfect_sign+=1

@@ -64,3 +64,33 @@ def run_phase3(
     for i, candidate in enumerate(top200):
         candidate["rank"] = i
 
+    if debug:
+        _print_diagnostics(top200)
+        
+    return top200
+
+def _print_diagnostics(ranked: list[dict]):
+    """Sanity check: no honeypots should be in top 10."""
+    print("\n  [Phase 3 Sanity Check] Top 10 honeypot triggers:")
+    top10_honeypots = 0
+    for c in ranked[:10]:
+        triggers = c.get("honeypot_trigger_count", 0)
+        if triggers > 0:
+            top10_honeypots += 1
+        print(f"    #{c['rank']:>3} {c['candidate_id']}  "
+              f"score={c['final_score']:.4f}  honeypot_triggers={triggers}")
+ 
+    if top10_honeypots > 0:
+        print(f"  [WARN] {top10_honeypots} honeypot(s) detected in top 10!")
+    else:
+        print(f"  [OK] No honeypots in top 10.")
+ 
+    top100_honeypots = sum(
+        1 for c in ranked[:100] if c.get("honeypot_trigger_count", 0) > 0
+    )
+    honeypot_rate = top100_honeypots / min(100, len(ranked)) * 100
+    print(f"  [Phase 3] Honeypot rate in top 100: {honeypot_rate:.1f}% "
+          f"({top100_honeypots}/{min(100, len(ranked))})")
+    if honeypot_rate > 10:
+        print(f"  [ERROR] Honeypot rate exceeds 10% disqualification threshold!")
+    print()

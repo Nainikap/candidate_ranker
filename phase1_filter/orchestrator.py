@@ -77,3 +77,4 @@ def run_phase1(
 
                 shortlist.append(candidate)
 
+        return shortlist

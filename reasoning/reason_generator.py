@@ -26,8 +26,8 @@ def _get_top_skills(candidate: dict, max_skills: int=2) -> list[str]:
     skills = candidate.get("skills", [])
     scored =[]
     tier_priority = {"TIER_A":2, "TIER_B":1}
-    prof_priority = {"advanced": 2, "intermediate": 1, "beginner": 0}
-
+    prof_priority = {"expert": 3, "advanced": 2, "intermediate": 1, "beginner": 0}
+    
     for skill in skills:
         raw_name = skill.get("name", "")
         norm_name = clean_skill(raw_name)
@@ -174,7 +174,7 @@ def _build_reasoning(candidate: dict, rank: int) -> str|None:
 
     main_sentence = "; ".join(filter(None, [sentence_parts[0]]))
 
-    final_test = main_sentence.strip()
+    final_text = main_sentence.strip()
     if not final_text.endswith((".", ";")):
         final_text += ";"
 

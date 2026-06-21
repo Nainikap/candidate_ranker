@@ -1,2 +1,75 @@
+# ─────────────────────────────────────────────
+# redrob_ranker — .gitignore
+# ─────────────────────────────────────────────
+
+# ── Python ─────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ── Virtual environments ───────────────────────
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# ── Data files (the 100K candidate dataset and intermediates) ─
+# These are large and/or contain candidate PII — never commit them.
 data/*.jsonl
-data/*.txt
+data/*.json
+data/candidates_raw.json
+data/convert_to_jsonl.py
+
+# Keep the data folder itself tracked (with a .gitkeep) but not its contents
+!data/.gitkeep
+
+# ── Output / results ───────────────────────────
+results/*.csv
+!results/.gitkeep
+
+# ── Testing ─────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.tox/
+
+# ── IDE / editor ────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS-specific ─────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs ────────────────────────────────────────
+*.log
+
+# ── Jupyter (if used for exploration) ──────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Misc local scratch files ───────────────────
+*.tmp
+/tmp/

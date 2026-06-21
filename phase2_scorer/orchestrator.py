@@ -25,7 +25,7 @@ from config.scoring_weights import PHASE2_WEIGHTS, PHASE1_FUSION_WEIGHTS
 from utils.company_classifier import is_services_only
 from utils.text_cleaner import is_india
  
-from phase2_scorer.skill_scorer import score_skills
+from phase2_scorer.skill_scorer import score_skill
 from phase2_scorer.trajectory_scorer import score_trajectory
 from phase2_scorer.title_alignment import score_title_alignment
 from phase2_scorer.behavioral_scorer import score_behavioral
@@ -122,7 +122,7 @@ def _score_one(candidate: dict) -> dict:
     w = PHASE2_WEIGHTS
     f = PHASE1_FUSION_WEIGHTS
 
-    skill_score       = score_skills(candidate)
+    skill_score       = score_skill(candidate)
     trajectory_score  = score_trajectory(candidate)
     title_score       = score_title_alignment(candidate)
     behavioral_score  = score_behavioral(candidate)
@@ -130,6 +130,16 @@ def _score_one(candidate: dict) -> dict:
     assessment_bonus  = assessment_credibility_bonus(candidate)
     external_bonus    = _external_validation_bonus(candidate)
 
+    raw = (
+        w["skill_relevance"]         * skill_score
+      + w["career_trajectory"]       * trajectory_score
+      + w["title_alignment"]         * title_score
+      + w["behavioral_availability"] * behavioral_score
+      + w["logistics"]               * logistics_score
+      + w["assessment_credibility"]  * assessment_bonus
+      + w["external_validation"]     * external_bonus
+    )
+    
     p1_tfidf = candidate.get("tfidf_score", 0.0)
     p1_bm25  = candidate.get("bm25_score", 0.0)
     fusion_bonus = (

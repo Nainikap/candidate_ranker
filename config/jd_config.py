@@ -111,6 +111,7 @@ TIER_WEIGHTS = {
 
 # ── Proficiency multipliers ────────────────────────────────────────────────────
 PROFICIENCY_WEIGHTS = {
+    "expert":       1.3,    # above advanced — dataset uses this tier too
     "advanced":     1.0,
     "intermediate": 0.6,
     "beginner":     0.3,
@@ -147,6 +148,9 @@ ROLE_FAMILIES = {
             "ml engineer", "machine learning engineer", "ai engineer",
             "applied scientist", "research engineer", "mlops", "ml platform",
             "nlp engineer", "applied ml", "applied ai",
+            "recommendation systems engineer", "recommendation engineer",
+            "search engineer", "ranking engineer", "retrieval engineer",
+            "search relevance", "ml infrastructure",
         ],
         "tfidf_threshold": 0.08,
         "bm25_threshold":  0.10,
@@ -241,7 +245,7 @@ LOCATION_SCORES = {
 }
 
 INDIA_COUNTRY_VARIANTS = [
-    "india", "in", "bharat", "IN",
+    "india", "in", "bharat",
 ]
 
 # ── Notice period scoring ──────────────────────────────────────────────────────
@@ -286,9 +290,9 @@ GITHUB_SCORES = {
 MULTIPLIERS = {
     "honeypot_triggers": {
         0: 1.00,
-        1: 0.50,
-        2: 0.15,
-        3: 0.05,    # 3+ triggers → near-zero
+        1: 0.35,    # even 1 logical impossibility is a strong fabrication signal
+        2: 0.10,
+        3: 0.03,    # 3+ triggers → near-zero
     },
     "services_only":       0.30,   # entire career at IT services, no product co
     "outside_india_hard":  0.10,   # outside India + unwilling to relocate
@@ -319,7 +323,7 @@ SENIORITY_LEVELS = {
     2: ["engineer", "analyst", "developer", "scientist", "specialist"],
     3: ["senior", "sr.", "sr "],
     4: ["staff", "lead", "tech lead", "technical lead"],
-    5: ["principal", "director", "distinguished", "fellow", "vp", "head of", "chief"],
+    5: ["principal", "director", "distinguished", "fellow", "vp", "head of"],
 }
 
 # Flat reverse lookup: keyword → level int

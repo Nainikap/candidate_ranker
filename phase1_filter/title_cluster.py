@@ -39,7 +39,7 @@ def assign_role_family(candidate: dict) -> dict:
     profile     = candidate.get("profile", {})
     curr_title_raw   = profile.get("current_title", "")
     curr_title_clean = clean_title(curr_title_raw)
-    headline    = profile.get("headline", "").lower()
+    headline = profile.get("headline", "").lower()
 
     matched_family = None
 
@@ -53,7 +53,7 @@ def assign_role_family(candidate: dict) -> dict:
         candidate["bm25_threshold"]   = _DEFAULT_THRESHOLDS["bm25_threshold"]
     else:
         family_config = ROLE_FAMILIES[matched_family]
-        candidate["role_family"] = ROLE_FAMILIES[matched_family]
+        candidate["role_family"] = matched_family
         candidate["tfidf_threshold"]  = family_config["tfidf_threshold"]
         candidate["bm25_threshold"]   = family_config["bm25_threshold"]
 
@@ -68,12 +68,12 @@ def assign_role_families(candidates: list[dict], debug:bool=False) -> list[dict]
     for candidate in candidates:
         assign_role_family(candidate)
 
-    if debug:
-        from collections import Counter
-        counts = Counter(c["role_family"] for c in candidates)
-        print("  [Title Cluster] Role family distribution:")
-        for family, count in counts.most_common():
-            pct = count / len(candidates) * 100
-            print(f"    {family:<20} {count:>7,}  ({pct:.1f}%)")
+   
+    from collections import Counter
+    counts = Counter(c["role_family"] for c in candidates)
+    print("  [Title Cluster] Role family distribution:")
+    for family, count in counts.most_common():
+        pct = count / len(candidates) * 100
+        print(f"    {family:<20} {count:>7,}  ({pct:.1f}%)")
 
     return candidates

@@ -1,0 +1,101 @@
+candidate_id,rank,score,reasoning
+CAND_0081846,1,0.972,"Lead AI Engineer for 7 years building Embeddings and Information Retrieval experience at Razorpay. Based in jaipur, open to relocation."
+CAND_0018499,2,0.954,"Senior Machine Learning Engineer for 7 years building RAG and Weaviate experience at Zomato; Noida-based, willing to relocate."
+CAND_0061257,3,0.941,Staff Machine Learning Engineer for 8 years building Python and PEFT experience at LinkedIn (product company).
+CAND_0080766,4,0.940,"Staff Machine Learning Engineer for 9 years building Python and Milvus experience at Salesforce (product company). Based in coimbatore, open to relocation."
+CAND_0027691,5,0.939,NLP Engineer for 6 years building Weaviate and Semantic Search.
+CAND_0006567,6,0.938,Senior AI Engineer for 8 years building BM25 and Python experience at Meta. Notice period 60 days.
+CAND_0088025,7,0.934,Staff Machine Learning Engineer for 9 years building Learning to Rank and LLMs. Notice period 90 days.
+CAND_0042506,8,0.930,Search Engineer for 4 years building Information Retrieval and FAISS.
+CAND_0068811,9,0.929,"Applied ML Engineer for 8 years building Pinecone and Vector Search experience at Freshworks; Pune-based, willing to relocate."
+CAND_0032216,10,0.927,"ML Engineer for 6 years building Learning to Rank and Information Retrieval experience at upGrad (product company); Chennai-based, willing to relocate."
+CAND_0077285,11,0.927,Recommendation Systems Engineer for 6 years building Sentence Transformers and Information Retrieval experience at Nykaa. Notice period 60 days.
+CAND_0066999,12,0.926,"Recommendation Systems Engineer for 6 years building LLMs and FAISS experience at Microsoft; Delhi-based, willing to relocate."
+CAND_0096142,13,0.924,Applied ML Engineer for 5 years building Python and BM25 experience at upGrad (product company). Notice period 120 days.
+CAND_0008425,14,0.922,Senior NLP Engineer for 8 years building Sentence Transformers and Qdrant experience at Ola. Notice period 90 days.
+CAND_0094759,15,0.922,Lead AI Engineer for 9 years building Semantic Search and FAISS experience at Meta. Low recruiter response rate historically.
+CAND_0030031,16,0.921,"AI Engineer for 6 years building Vector Search and Python experience at Microsoft. Based in trivandrum, relocation unconfirmed."
+CAND_0052328,17,0.921,Recommendation Systems Engineer for 6 years building Sentence Transformers and Vector Search experience at Amazon.
+CAND_0037980,18,0.920,"Senior Applied Scientist for 9 years building BM25 and LoRA experience at Niramai (product company); Kolkata-based, willing to relocate."
+CAND_0006418,19,0.919,Machine Learning Engineer for 6 years building Weaviate and Embeddings. Notice period 60 days.
+CAND_0037566,20,0.919,"Machine Learning Engineer for 7 years building Pinecone and Elasticsearch experience at LinkedIn (product company); Bangalore-based, willing to relocate."
+CAND_0043228,21,0.917,Applied ML Engineer for 7 years building Sentence Transformers and OpenSearch experience at Zoho.
+CAND_0089947,22,0.917,Junior ML Engineer for 5 years building Elasticsearch and Information Retrieval. Notice period 90 days.
+CAND_0077337,23,0.916,Staff Machine Learning Engineer for 7 years building Python and RAG experience at Paytm. Notice period 60 days.
+CAND_0014440,24,0.913,Recommendation Systems Engineer for 6 years building Milvus and Qdrant experience at CRED. Notice period 60 days.
+CAND_0041669,25,0.913,Recommendation Systems Engineer for 8 years building Semantic Search and Milvus experience at CRED. Notice period 60 days.
+CAND_0093193,26,0.913,Senior Machine Learning Engineer for 8 years building OpenSearch and Qdrant experience at Niramai (product company).
+CAND_0030468,27,0.912,"Senior Applied Scientist for 5 years building OpenSearch and Milvus experience at Swiggy. Based in indore, open to relocation."
+CAND_0036437,28,0.912,"Search Engineer for 5 years building Sentence Transformers and Elasticsearch; Kolkata-based, willing to relocate."
+CAND_0054123,29,0.911,Applied ML Engineer for 5 years building Qdrant and LLMs experience at Meta. Notice period 60 days.
+CAND_0096801,30,0.911,AI Research Engineer for 4 years building FAISS and Weaviate experience at CRED.
+CAND_0018549,31,0.908,Recommendation Systems Engineer for 7 years building Milvus and Qdrant experience at Uber. Notice period 60 days.
+CAND_0058688,32,0.908,"AI Engineer for 7 years building Milvus and Embeddings experience at Vedantu (product company). Based in berlin, open to relocation."
+CAND_0071974,33,0.908,"Senior AI Engineer for 8 years building Elasticsearch and Qdrant experience at Netflix. Based in vizag, relocation unconfirmed."
+CAND_0079387,34,0.908,"AI Engineer for 7 years building OpenSearch and Vector Search experience at Microsoft. Based in trivandrum, relocation unconfirmed."
+CAND_0008295,35,0.907,"AI Research Engineer for 6 years building BM25 and Python experience at Razorpay; Pune-based, willing to relocate."
+CAND_0046525,36,0.907,Senior Machine Learning Engineer for 6 years building Sentence Transformers and Qdrant. Notice period 60 days.
+CAND_0040946,37,0.905,AI Research Engineer for 6 years building Qdrant and Learning to Rank.
+CAND_0075249,38,0.905,"Applied ML Engineer for 6 years building Pinecone and Milvus experience at Zomato. Based in ahmedabad, relocation unconfirmed."
+CAND_0099401,39,0.905,NLP Engineer for 8 years building Semantic Search and Qdrant experience at Dream11. Notice period 90 days.
+CAND_0045250,40,0.904,Applied ML Engineer for 7 years building BM25 and Vector Search.
+CAND_0062247,41,0.904,"AI Engineer for 7 years building Qdrant and Vector Search experience at Google. Based in kochi, open to relocation."
+CAND_0019288,42,0.903,AI Research Engineer for 6 years building OpenSearch and FAISS experience at Paytm.
+CAND_0050876,43,0.903,Applied ML Engineer for 6 years building Sentence Transformers and Python experience at Freshworks. Notice period 90 days.
+CAND_0065195,44,0.902,Search Engineer for 5 years building Qdrant and Elasticsearch experience at CRED.
+CAND_0006557,45,0.901,NLP Engineer for 8 years building Vector Search and FAISS experience at Paytm. Notice period 120 days.
+CAND_0017960,46,0.901,Recommendation Systems Engineer for 8 years building Information Retrieval and Qdrant experience at Nykaa. Notice period 60 days.
+CAND_0054394,47,0.900,Recommendation Systems Engineer for 4 years building Embeddings and Pinecone experience at PharmEasy (product company).
+CAND_0024147,48,0.899,ML Engineer for 6 years building Learning to Rank and Qdrant experience at Ola. Notice period 60 days.
+CAND_0037000,49,0.899,Search Engineer for 3 years building FAISS and Pinecone experience at Unacademy.
+CAND_0073450,50,0.899,AI Research Engineer for 4 years building Embeddings and OpenSearch experience at Wysa (product company).
+CAND_0005538,51,0.898,Senior AI Engineer for 6 years building Python and Natural Language Processing experience at Adobe (product company). Notice period 90 days.
+CAND_0039383,52,0.898,Applied ML Engineer for 7 years building FAISS and Vector Search experience at Meesho. Notice period 90 days.
+CAND_0093912,53,0.898,"Senior Data Scientist for 5 years building Vector Search and Elasticsearch experience at Razorpay. Based in chandigarh, relocation unconfirmed."
+CAND_0011162,54,0.897,Recommendation Systems Engineer for 6 years building FAISS and OpenSearch experience at upGrad (product company). Notice period 90 days.
+CAND_0064326,55,0.897,Search Engineer for 8 years building Python and Weaviate.
+CAND_0016163,56,0.896,Applied ML Engineer for 7 years building Weaviate and Embeddings experience at Dream11. Notice period 120 days.
+CAND_0002025,57,0.894,"Senior AI Engineer for 6 years building FAISS and Sentence Transformers experience at Apple. Based in trivandrum, relocation unconfirmed."
+CAND_0007460,58,0.894,AI Engineer for 5 years building RAG and Weaviate experience at Salesforce (product company). Notice period 120 days.
+CAND_0046064,59,0.894,"Senior NLP Engineer for 9 years building Pinecone and Elasticsearch experience at Salesforce (product company). Based in coimbatore, relocation unconfirmed."
+CAND_0007412,60,0.893,Applied ML Engineer for 7 years building Pinecone and BM25 experience at Zoho. Notice period 120 days.
+CAND_0008239,61,0.893,"AI Engineer for 4 years building Milvus and Vector Search experience at Apple. Based in jaipur, open to relocation."
+CAND_0076163,62,0.893,NLP Engineer for 7 years building Semantic Search and Elasticsearch experience at Ola. Notice period 60 days.
+CAND_0015065,63,0.892,AI Research Engineer for 4 years building Information Retrieval and Learning to Rank experience at Flipkart. Notice period 90 days.
+CAND_0018094,64,0.892,ML Engineer for 5 years building Information Retrieval and Pinecone.
+CAND_0041610,65,0.892,"Recommendation Systems Engineer for 7 years building Elasticsearch and OpenSearch experience at Zoho. Based in indore, open to relocation."
+CAND_0046353,66,0.892,ML Engineer for 6 years building Vector Search and Weaviate experience at Razorpay. Notice period 120 days.
+CAND_0051004,67,0.892,"Senior Data Scientist for 5 years building Vector Search and Qdrant experience at CRED; Delhi-based, willing to relocate."
+CAND_0007009,68,0.891,Recommendation Systems Engineer for 8 years building OpenSearch and Python experience at Wysa (product company).
+CAND_0042029,69,0.891,"Senior Data Scientist for 6 years building OpenSearch and RAG experience at Flipkart; Delhi-based, willing to relocate."
+CAND_0083879,70,0.891,Machine Learning Engineer for 7 years building Sentence Transformers and Milvus experience at Ola.
+CAND_0089552,71,0.891,Machine Learning Engineer for 6 years building Vector Search and Milvus experience at Netflix. Notice period 120 days.
+CAND_0020877,72,0.890,Applied ML Engineer for 5 years building Information Retrieval and Weaviate experience at CRED. Notice period 60 days.
+CAND_0018701,73,0.889,Junior ML Engineer for 6 years building Information Retrieval and BM25. Notice period 60 days.
+CAND_0036184,74,0.889,"Recommendation Systems Engineer for 6 years building Sentence Transformers and Embeddings experience at CRED. Based in trivandrum, relocation unconfirmed."
+CAND_0040178,75,0.889,ML Engineer for 5 years building OpenSearch and Vector Search experience at Meesho. Notice period 60 days.
+CAND_0054318,76,0.889,AI Research Engineer for 4 years building FAISS and Information Retrieval experience at BYJU'S. Notice period 60 days.
+CAND_0068777,77,0.888,AI Research Engineer for 7 years building Qdrant and Learning to Rank. Notice period 120 days.
+CAND_0075439,78,0.888,"Machine Learning Engineer for 4 years building Elasticsearch and Learning to Rank experience at Flipkart. Based in vizag, relocation unconfirmed."
+CAND_0038368,79,0.887,ML Engineer for 5 years building Embeddings and BM25 experience at PhonePe.
+CAND_0051630,80,0.887,Machine Learning Engineer for 6 years building Information Retrieval and Elasticsearch experience at Razorpay. Notice period 90 days.
+CAND_0073620,81,0.887,AI Research Engineer for 4 years building FAISS and Python. Notice period 90 days.
+CAND_0011687,82,0.886,"Senior NLP Engineer for 8 years building OpenSearch and Weaviate experience at Niramai (product company). Based in indore, relocation unconfirmed."
+CAND_0047721,83,0.886,Senior Data Scientist for 7 years building Qdrant and Information Retrieval experience at Microsoft. Notice period 90 days.
+CAND_0051292,84,0.886,"Applied ML Engineer for 5 years building RAG and Vector Search experience at Freshworks. Based in trivandrum, relocation unconfirmed."
+CAND_0064256,85,0.886,Junior ML Engineer for 6 years building Python and Embeddings experience at BYJU'S.
+CAND_0015057,86,0.885,ML Engineer for 5 years building Semantic Search and Embeddings experience at Meesho. Notice period 90 days.
+CAND_0061265,87,0.885,Recommendation Systems Engineer for 7 years building Learning to Rank and Qdrant experience at Zoho. Notice period 120 days.
+CAND_0070202,88,0.885,Machine Learning Engineer for 5 years building Embeddings and Qdrant experience at BYJU'S. Notice period 90 days.
+CAND_0081686,89,0.885,Search Engineer for 6 years building Milvus and Python experience at Netflix. Notice period 60 days.
+CAND_0044855,90,0.884,Senior Data Scientist for 7 years building Information Retrieval and Learning to Rank experience at Flipkart. Notice period 60 days.
+CAND_0072660,91,0.884,"Machine Learning Engineer for 7 years building Information Retrieval and Python experience at Unacademy. Based in berlin, relocation unconfirmed."
+CAND_0043381,92,0.883,AI Research Engineer for 4 years building OpenSearch and Pinecone experience at PharmEasy (product company).
+CAND_0064904,93,0.883,AI Engineer for 5 years building Embeddings and Elasticsearch experience at LinkedIn (product company). Notice period 90 days.
+CAND_0028793,94,0.882,Search Engineer for 7 years building Embeddings and Information Retrieval experience at Google. Notice period 120 days.
+CAND_0005260,95,0.881,Senior NLP Engineer for 5 years building Embeddings and Semantic Search experience at Netflix. Notice period 60 days.
+CAND_0011125,96,0.881,Junior ML Engineer for 7 years building Milvus and Weaviate experience at Wysa (product company). Notice period 120 days.
+CAND_0033179,97,0.881,"AI Research Engineer for 7 years building Information Retrieval and OpenSearch. Based in ahmedabad, open to relocation."
+CAND_0037944,98,0.881,"Senior Data Scientist for 5 years building Python and OpenSearch experience at Vedantu (product company). Based in jaipur, relocation unconfirmed."
+CAND_0062561,99,0.881,"ML Engineer for 6 years building Learning to Rank and Information Retrieval experience at Razorpay. Based in bhubaneswar, relocation unconfirmed."
+CAND_0067866,100,0.881,"Senior Software Engineer (ML) for 6 years building Embeddings and Elasticsearch; Noida-based, willing to relocate."

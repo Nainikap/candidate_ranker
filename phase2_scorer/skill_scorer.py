@@ -29,7 +29,7 @@ def _get_tier(skill_name: str) -> str:
     name = clean_skill(skill_name)
     if name in SKILL_TIER_LOOKUP:
         return SKILL_TIER_LOOKUP[name]
-    for kw, tier in SKILL_TIER_LOOKUP.items:
+    for kw, tier in SKILL_TIER_LOOKUP.items():
         if kw in name or name in kw:
             return tier
     return "UNKOWN"
@@ -37,7 +37,7 @@ def _get_tier(skill_name: str) -> str:
 def _depth_multiplier(duration_months: int|float|None) -> float:
     """log(1 + duration_months / BASE) — rewards depth over breadth."""
     months = max(0.0, duration_months or 0)
-    return math.log(months/SKILL_DEPTH_LOG_BASE)
+    return math.log1p((months)/SKILL_DEPTH_LOG_BASE)
 
 def _credibility_multiplier(proficiency: str,
                             assessment_score: float|None
@@ -50,7 +50,7 @@ def _credibility_multiplier(proficiency: str,
         return 1.0
     
     prof = (proficiency or "").lower()
-    if prof != "advanced":
+    if prof not in ("advanced", "expert") :
         return 1.0
     
     cfg = ASSESSMENT_CREDIBILITY

@@ -10,6 +10,14 @@ Validation checks (per the competition brief):
   - No NON_TECH role family in top 20
   - candidate_id must be present and unique
 
+Tie-break rule:
+  - If two or more consecutive candidates have the exact same final_score
+    (after rounding to 3 decimal places, matching the CSV's displayed
+    precision), they are ordered by candidate_id ascending. This guarantees
+    a fully deterministic, reproducible ranking — re-running the pipeline
+    on the same input always produces byte-identical output, and judges
+    never see an arbitrary/unstable ordering among tied scores.
+
 Output format (exact columns from the brief):
   candidate_id, rank, score, reasoning
 """
@@ -18,17 +26,47 @@ import csv
 from pathlib import Path
 
 
+def _apply_tie_break(ranked: list[dict]) -> list[dict]:
+    """
+    Re-sort the ranked list so that ties in final_score are broken by
+    candidate_id ascending, then re-assign rank 1..N accordingly.
+
+    Ties are detected on the score AS DISPLAYED (rounded to 3 decimals),
+    since that's the precision written to the CSV — two candidates that
+    differ only beyond the 3rd decimal would otherwise look tied to a
+    human or automated grader reading the file, but sort inconsistently
+    run-to-run if left to float comparison or insertion order.
+    """
+    def _sort_key(c: dict):
+        displayed_score = round(c.get("final_score", 0.0), 3)
+        return (-displayed_score, c.get("candidate_id", ""))
+
+    tie_broken = sorted(ranked, key=_sort_key)
+
+    for i, c in enumerate(tie_broken, 1):
+        c["rank"] = i
+
+    return tie_broken
+
+
 def _validate_monotonic_scores(ranked: list[dict]) -> list[str]:
-    """Check scores are non-increasing by rank. Returns list of warning strings."""
+    """
+    Check scores are non-increasing by rank. Returns list of warning strings.
+
+    Compares scores at the CSV's displayed precision (3 decimals), matching
+    _apply_tie_break's tie-detection precision. A strict <= comparison is
+    used (not <), since legitimate ties — now ordered by candidate_id via
+    the tie-break — are expected and should not be flagged as violations.
+    """
     warnings = []
     for i in range(1, len(ranked)):
-        prev_score = ranked[i - 1].get("final_score", 0.0)
-        curr_score = ranked[i].get("final_score", 0.0)
+        prev_score = round(ranked[i - 1].get("final_score", 0.0), 3)
+        curr_score = round(ranked[i].get("final_score", 0.0), 3)
         if curr_score > prev_score:
             warnings.append(
                 f"Score not monotonic at rank {i+1}: "
-                f"{ranked[i]['candidate_id']}={curr_score:.4f} > "
-                f"{ranked[i-1]['candidate_id']}={prev_score:.4f}"
+                f"{ranked[i]['candidate_id']}={curr_score:.3f} > "
+                f"{ranked[i-1]['candidate_id']}={prev_score:.3f}"
             )
     return warnings
 
@@ -163,6 +201,8 @@ def write_output(
     """
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    ranked = _apply_tie_break(ranked)
 
     validation = validate_output(ranked, debug=debug)
 

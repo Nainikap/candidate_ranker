@@ -7,17 +7,24 @@ All functions return lowercase stripped strings for consistent matching.
 
 import re
 
-def clean(text:str | None) -> str:
+
+# ── Generic ───────────────────────────────────────────────────────────────────
+
+def clean(text: str | None) -> str:
     """Lowercase, strip, collapse whitespace."""
     if not text:
         return ""
     return re.sub(r"\s+", " ", str(text).lower().strip())
 
-def clean_list(items: list[str] | None)-> list[str]:
+
+def clean_list(items: list[str] | None) -> list[str]:
     """Clean a list of strings, drop empties."""
     if not items:
         return []
     return [c for item in items if (c := clean(item))]
+
+
+# ── Skill names ───────────────────────────────────────────────────────────────
 
 _SKILL_ALIASES = {
     # normalize common variants to canonical form used in jd_config
@@ -66,10 +73,13 @@ _SKILL_ALIASES = {
     "learning to rank":             "learning to rank",
 }
 
-def clean_skill(skill: str | None)-> str:
+def clean_skill(skill: str | None) -> str:
     """Normalize a skill name to its canonical form."""
     s = clean(skill)
-    return _SKILL_ALIASES.get(s,s)
+    return _SKILL_ALIASES.get(s, s)
+
+
+# ── Company names ─────────────────────────────────────────────────────────────
 
 _COMPANY_STRIP = re.compile(
     r"\b(pvt|ltd|llc|inc|corp|limited|private|technologies|technology|"
@@ -77,14 +87,17 @@ _COMPANY_STRIP = re.compile(
     re.IGNORECASE,
 )
 
-def clean_company(name: str | None)-> str:
+def clean_company(name: str | None) -> str:
     """
     Normalize company name for matching against known lists.
     'Tata Consultancy Services Ltd.' → 'tata consultancy'
     """
     s = clean(name)
-    s = _COMPANY_STRIP.sub("",s)
+    s = _COMPANY_STRIP.sub("", s)
     return re.sub(r"\s+", " ", s).strip()
+
+
+# ── Location strings ──────────────────────────────────────────────────────────
 
 _LOCATION_ALIASES = {
     "bengaluru":        "bangalore",
@@ -105,6 +118,7 @@ def clean_location(loc: str | None) -> str:
     s = re.sub(r",?\s*(india|in)$", "", s).strip()
     return _LOCATION_ALIASES.get(s, s)
 
+
 def extract_city(location: str | None) -> str:
     """
     Extract the primary city from a location string.
@@ -114,8 +128,8 @@ def extract_city(location: str | None) -> str:
     # take first comma-separated token
     city = loc.split(",")[0].strip()
     return _LOCATION_ALIASES.get(city, city)
- 
- 
+
+
 def is_india(country: str | None, location: str | None) -> bool:
     """Return True if the candidate appears to be based in India."""
     from config.jd_config import INDIA_COUNTRY_VARIANTS
@@ -126,7 +140,10 @@ def is_india(country: str | None, location: str | None) -> bool:
     if any(v in loc_clean for v in INDIA_COUNTRY_VARIANTS):
         return True
     return False
- 
+
+
+# ── Title strings ─────────────────────────────────────────────────────────────
+
 _TITLE_NOISE = re.compile(
     r"\b(at|@|–|-|and|&|the|with|for|of|in|a|an)\b", re.IGNORECASE
 )
@@ -141,7 +158,10 @@ def clean_title(title: str | None) -> str:
     s = re.sub(r"(@|at\s+\w+).*$", "", s).strip()
     s = _TITLE_NOISE.sub(" ", s)
     return re.sub(r"\s+", " ", s).strip()
- 
+
+
+# ── Text concatenation for TF-IDF / BM25 ─────────────────────────────────────
+
 def build_profile_text(candidate: dict) -> str:
     """
     Concatenate all textual fields into a single document for TF-IDF.
@@ -149,38 +169,39 @@ def build_profile_text(candidate: dict) -> str:
     """
     profile = candidate.get("profile", {})
     parts = []
- 
+
     # Title repeated 3x — highest signal
     title = clean(profile.get("current_title", ""))
     parts.extend([title] * 3)
- 
+
     # Headline repeated 2x
     headline = clean(profile.get("headline", ""))
     parts.extend([headline] * 2)
- 
+
     # Summary
     parts.append(clean(profile.get("summary", "")))
- 
+
     # Career descriptions
     for role in candidate.get("career_history", []):
         parts.append(clean(role.get("description", "")))
         parts.append(clean(role.get("title", "")))
- 
+
     # Skill names repeated 2x (skills are strong signal)
     for skill in candidate.get("skills", []):
         skill_name = clean_skill(skill.get("name", ""))
         parts.extend([skill_name] * 2)
- 
+
     return " ".join(p for p in parts if p)
+
 
 def build_skills_text(candidate: dict) -> str:
     """
     Build a skills-only document for BM25.
     Weights by proficiency: advanced repeated 3x, intermediate 2x, beginner 1x.
     """
-    proficiency_repeats = {"advanced": 3, "intermediate": 2, "beginner": 1}
+    proficiency_repeats = {"expert": 4, "advanced": 3, "intermediate": 2, "beginner": 1}
     parts = []
- 
+
     for skill in candidate.get("skills", []):
         name = clean_skill(skill.get("name", ""))
         if not name:
@@ -189,9 +210,9 @@ def build_skills_text(candidate: dict) -> str:
             skill.get("proficiency", "beginner").lower(), 1
         )
         parts.extend([name] * repeats)
- 
+
     # Also include title words — "ML Engineer" signals skill family
     title = clean_title(candidate.get("profile", {}).get("current_title", ""))
     parts.extend(title.split())
- 
+
     return " ".join(parts)

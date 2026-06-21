@@ -64,7 +64,7 @@ def run_tfidf_retrieval(
     results: dict[str, float] ={}
     passed=0
 
-    for (cid, score, threshold) in enumerate(zip(ids, scores, thresh)):
+    for (cid, score, threshold) in (zip(ids, scores, thresh)):
         if score>= threshold:
             results[cid] = float(score)
             passed +=1
